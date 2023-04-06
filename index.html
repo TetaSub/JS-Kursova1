@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="X-UA-Compatible">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор часу</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+</head>
+
+<body>
+
+    <div>
+        <div class="claculation-container">
+            <h1 class="time__title">Хронолятор</h1>
+            <form class="time-form">
+
+                <fieldset class="form-item form-item__dates">
+                    <legend>{Виберіть дати}</legend>
+                    <div>
+                        <label for="startDate"></label>
+                        <input class="startDate" type="date" id="startDate" required tabindex="1" />
+                    </div>
+                    <div>
+                        <label for="startDate"></label>
+                        <input class="endDate" type="date" id="endDate" tabindex="2" />
+                    </div>
+                </fieldset>
+
+                <div class="form-item form-item__preset">
+                    <button class="btn__preset preset__week">тиждень</button>
+                    <button class="btn__preset preset__month">місяць</button>
+                </div>
+
+                <fieldset class="form-item form-item__days">
+                    <legend>Дні тижня</legend>
+                    <div>
+                        <input class="alldays" type="radio" id="alldays" value="alldays" name="days-option"
+                            checked="checked">
+                        <label for="alldays">всі дні</label>
+                    </div>
+                    <div>
+                        <input class="weekdays" type="radio" id="weekdays" value="weekdays" name="days-option">
+                        <label for="weekdays">будні дні</label>
+                    </div>
+                    <div>
+                        <input class="weekends" type="radio" id="weekends" value="weekends" name="days-option">
+                        <label for="weekends">вихідні дні</label>
+                    </div>
+
+                    <!--<label for="select-days">Дні тижня</label>
+                    <select class="selectDays" name="days" id="select-days">
+                        <option value="alldays">всі дні</option>
+                        <option value="weekdays">будні дні</option>
+                        <option value="weekends">вихідні дні</option>
+                    </select>-->
+
+                </fieldset>
+
+
+                <fieldset class="form-item form-item__units">
+                    <legend>Одиниці виміру</legend>
+                    <div>
+                        <input class="unit__days" type="radio" id="days" value="days" name="time-unit"
+                            checked="checked">
+                        <label class="time-unit__label" for="days">дні</label>
+                    </div>
+                    <div>
+                        <input class="unit__hours" type="radio" id="hours" value="hours" name="time-unit">
+                        <label class="time-unit__label" for="hours">години</label>
+                    </div>
+                    <div>
+                        <input class="unit__minutes" type="radio" id="minutes" value="minutes" name="time-unit">
+                        <label class="time-unit__label" for="minutes">хвилини</label>
+                    </div>
+                    <div>
+                        <input class="unit__seconds" type="radio" id="seconds" value="seconds" name="time-unit">
+                        <label class="time-unit__label" for="seconds">секунди</label>
+                    </div>
+                </fieldset>
+
+                <button class="btn calculate-result" type="submit">Порахувати</button>
+            </form>
+        </div>
+        <div class="result"></div>
+
+
+        <table class="lastresults-container">
+            <thead>
+                <tr>
+                    <th class="lastresults__title" colspan="4">Останні 10 результатів</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="lastresults-table">
+                    <th class="selected__startDate">Початкова дата</th>
+                    <th class="selected__endDate">Кінцева дата</th>
+                    <th class="selected__day">Дні виміру</th>
+                    <th class="lastresults">Результат</th>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+    <script src="./index.js">
+    </script>
+</body>
+
+</html>
