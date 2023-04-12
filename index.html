@@ -13,12 +13,12 @@
 <body>
 
     <div>
-        <div class="claculation-container">
+        <div class="calculator-container">
             <h1 class="time__title">Хронолятор</h1>
             <form class="time-form">
 
                 <fieldset class="form-item form-item__dates">
-                    <legend>{Виберіть дати}</legend>
+                    <legend>Виберіть дати</legend>
                     <div>
                         <label for="startDate"></label>
                         <input class="startDate" type="date" id="startDate" required tabindex="1" />
@@ -27,11 +27,12 @@
                         <label for="startDate"></label>
                         <input class="endDate" type="date" id="endDate" tabindex="2" />
                     </div>
+
                 </fieldset>
 
                 <div class="form-item form-item__preset">
-                    <button class="btn__preset preset__week">тиждень</button>
-                    <button class="btn__preset preset__month">місяць</button>
+                    <button class="btn__preset preset__week">+ тиждень</button>
+                    <button class="btn__preset preset__month">+ місяць</button>
                 </div>
 
                 <fieldset class="form-item form-item__days">
@@ -81,24 +82,32 @@
                     </div>
                 </fieldset>
 
-                <button class="btn calculate-result" type="submit">Порахувати</button>
-            </form>
-        </div>
-        <div class="result"></div>
+                <button class="btn time-form__calculate" type="submit">порахувати</button>
 
+            </form>
+
+            <button class="btn time-form__clear">очистити</button>
+            <p class="result__message"></p>
+        </div>
 
         <table class="lastresults-container">
             <thead>
                 <tr>
                     <th class="lastresults__title" colspan="4">Останні 10 результатів</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr class="lastresults-table">
+                <tr>
                     <th class="selected__startDate">Початкова дата</th>
                     <th class="selected__endDate">Кінцева дата</th>
                     <th class="selected__day">Дні виміру</th>
-                    <th class="lastresults">Результат</th>
+                    <th class="result">Результат</th>
+                </tr>
+            </thead>
+            <tbody class="lastresults-table">
+                <tr>
+                    <th class="selected__startDate"></th>
+                    <th class="selected__endDate"></th>
+                    <th class="selected__day"></th>
+                    <th class="result"></th>
                 </tr>
             </tbody>
         </table>
