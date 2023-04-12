@@ -25,7 +25,7 @@
                     </div>
                     <div>
                         <label for="startDate"></label>
-                        <input class="endDate" type="date" id="endDate" tabindex="2" />
+                        <input class="endDate" type="date" id="endDate" required tabindex="2" />
                     </div>
 
                 </fieldset>
@@ -39,7 +39,7 @@
                     <legend>Дні тижня</legend>
                     <div>
                         <input class="alldays" type="radio" id="alldays" value="alldays" name="days-option"
-                            checked="checked">
+                            checked="checked" required>
                         <label for="alldays">всі дні</label>
                     </div>
                     <div>
@@ -50,22 +50,14 @@
                         <input class="weekends" type="radio" id="weekends" value="weekends" name="days-option">
                         <label for="weekends">вихідні дні</label>
                     </div>
-
-                    <!--<label for="select-days">Дні тижня</label>
-                    <select class="selectDays" name="days" id="select-days">
-                        <option value="alldays">всі дні</option>
-                        <option value="weekdays">будні дні</option>
-                        <option value="weekends">вихідні дні</option>
-                    </select>-->
-
                 </fieldset>
 
 
                 <fieldset class="form-item form-item__units">
                     <legend>Одиниці виміру</legend>
                     <div>
-                        <input class="unit__days" type="radio" id="days" value="days" name="time-unit"
-                            checked="checked">
+                        <input class="unit__days" type="radio" id="days" value="days" name="time-unit" checked="checked"
+                            required>
                         <label class="time-unit__label" for="days">дні</label>
                     </div>
                     <div>
