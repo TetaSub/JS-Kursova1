@@ -1,0 +1,361 @@
+@import "./fonts.scss";
+
+body {
+    font-family: 'Nunito', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    width: auto;
+}
+
+*,
+fieldset {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    td,
+    th {
+        padding: 0;
+    }
+}
+
+
+.title-wrapper {
+    background: #EEF0FF;
+    border-bottom: 1px solid rgba(68, 76, 155, 0.2);
+    padding: 70px 100px;
+
+    .title {
+        @extend %nunito-regular;
+        font-size: 48px;
+        line-height: 65px;
+    }
+}
+
+.subtitle {
+    @extend %nunito-light;
+    font-size: 24px;
+    line-height: 33px;
+    color: #2A3042;
+    margin-bottom: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    background: #EEF0FF;
+}
+
+.calculator-block {
+    width: 50%;
+    padding: 50px;
+}
+
+.dates-wrapper,
+.options-wrapper {
+    background: #FFFFFF;
+    box-shadow: 0px 20px 32px rgba(139, 146, 204, 0.15);
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.form-item {
+    &__dates {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__preset {
+        text-align: end;
+    }
+
+    &__days {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 48px;
+    }
+
+    &__units {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 48px;
+        margin-bottom: 48px;
+        border-bottom: 1px solid rgba(68, 76, 155, 0.2);
+    }
+
+    input[type="radio"]+label {
+        @extend %nunito-regular;
+        font-size: 14px;
+        line-height: 19px;
+        padding: 12px 20px;
+    }
+
+    input[type="radio"]:checked+label {
+        background-color: #FFDAE7;
+        border-radius: 48px;
+    }
+
+
+}
+
+.date__input {
+    @extend %nunito-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #444C9B;
+    background: #DADDF7;
+    border-radius: 48px;
+    padding: 12px 40px;
+    margin-bottom: 10px;
+}
+
+.btn__preset {
+    @extend %nunito-light;
+    font-size: 14px;
+    line-height: 19px;
+    color: #444C9B;
+    opacity: 0.8;
+    background-color: #EEF0FF;
+    border-radius: 48px;
+    padding: 12px;
+    margin-left: 20px;
+}
+
+.time-form__calculate {
+    @extend %nunito-extrabold;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 12px 140px;
+    background: #444C9B;
+    border-radius: 48px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.result__message {
+    background-color: transparent;
+    @extend %nunito-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #444C9B;
+    border-radius: 48px;
+    padding: 12px 40px;
+}
+
+.btn__clear {
+    background-color: transparent;
+    @extend %nunito-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FF206E;
+    float: right;
+
+    svg {
+        margin-right: 5px;
+    }
+}
+
+.lastresults-block {
+    width: 50%;
+    padding: 50px;
+    margin-bottom: 20px;
+    text-align: left;
+
+    .subtitle {
+        padding-left: 10px;
+        padding-bottom: 30px;
+    }
+}
+
+.lastresults__header {
+    @extend %nunito-bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #444C9B;
+
+    th {
+        width: 25%;
+        padding: 20px 0 20px 10px;
+    }
+}
+
+
+.lastresults__row {
+    @extend %nunito-regular;
+    font-size: 14px;
+    line-height: 19px;
+    color: #444C9B;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+    td {
+        width: 25%;
+        padding: 20px 0 20px 10px;
+    }
+
+    .selected__day,
+    .lastresults {
+        max-width: 50px;
+    }
+
+    &_first {
+        background: #FFFFFF;
+        box-shadow: 0px 4px 8px rgba(139, 146, 204, 0.1);
+
+        td:first-child {
+            border-top-left-radius: 24px;
+            border-bottom-left-radius: 24px;
+        }
+
+        td:last-child {
+            border-top-right-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+    }
+
+}
+
+
+
+@media all and (min-width: 990px) and (max-width: 1199.98px) {
+
+    .calculator-block,
+    .lastresults-block {
+        padding: 20px;
+    }
+
+    .dates-wrapper,
+    .options-wrapper {
+        padding: 20px;
+    }
+}
+
+@media all and (max-width: 989.98px) {
+
+    .title {
+        text-align: center;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .calculator-block {
+        width: 75%;
+        border-bottom: 1px solid rgba(68, 76, 155, 0.2);
+    }
+
+    .lastresults-block {
+        width: 75%;
+        position: relative;
+    }
+
+    .lastresults__clear {
+        position: absolute;
+        top: 95%;
+        right: 40px;
+    }
+}
+
+@media all and (max-width: 767.98px) {
+
+    .lastresults-block,
+    .calculator-block {
+        width: 100%;
+        padding: 40px;
+    }
+}
+
+@media all and (max-width: 559.98px) {
+
+    .title-wrapper {
+        padding: 10px;
+    }
+
+    .lastresults-block,
+    .calculator-block {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .dates-wrapper,
+    .options-wrapper {
+        padding: 20px 15px;
+        margin-bottom: 10px;
+    }
+
+    .form-item {
+        margin-bottom: 20px;
+
+        &__dates {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        &__preset {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        &__units {
+            padding-bottom: 20px;
+        }
+
+        input[type="radio"]+label {
+            padding: 10px 15px;
+        }
+
+    }
+
+    .btn__preset:first-child {
+        margin-left: 0;
+    }
+
+    .time-form__calculate {
+        padding: 12px 60px;
+    }
+
+    .lastresults__clear {
+        right: 20px;
+    }
+
+    .lastresults__header {
+        font-size: 12px;
+
+        th {
+            padding: 20px 0 20px 2px;
+        }
+    }
+
+
+    .lastresults__row {
+        font-size: 12px;
+
+        td {
+            padding: 20px 0 20px 5px;
+        }
+    }
+}

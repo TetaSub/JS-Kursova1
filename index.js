@@ -1,7 +1,7 @@
 "use strict";
 
 // Variables
-const STORAGE_KEY = "lastResultArray";
+const STORAGE_KEY = "results";
 const MAX_STORED_RESULTS = 10;
 const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
 const HOURS_IN_MILLISECONDS = 60 * 60 * 1000;
@@ -27,7 +27,8 @@ let timeUnitLabel = document.querySelector(`label[for="${timeUnit}"]`).textConte
 const calculateButton = document.querySelector(".time-form__calculate");
 const clearFormButton = document.querySelector(".time-form__clear");
 const resultMessage = document.querySelector(".result__message");
-const lastResultsTable = document.querySelector(".lastresults-table");
+const lastResultsTable = document.querySelector(".lastresults-whrapper");
+const clearResultsButton = document.querySelector(".lastresults__clear");
 
 
 // start+end days variables
@@ -36,13 +37,11 @@ let endDate = new Date(endDateInput.value);
 
 // 'preset' function
 
-presetWeek.addEventListener("click", (event) => {
-    event.preventDefault();
+presetWeek.addEventListener("click", (event) => {    
     setEndDate("week");
 });
 
 presetMonth.addEventListener("click", (event) => {
-    event.preventDefault();    
     setEndDate("month");
 });
 
@@ -140,8 +139,12 @@ const createResultMessage = function (startDate, endDate, daysOptionLabel) {
   const timeDifference = getTimeDifference(timeUnit, daysOption);
   startDate = startDateInput.value;
   endDate = endDateInput.value;
-  const resultMessage = `Різниця між ${startDate} та ${endDate} становить ${timeDifference}, якщо враховувати ${daysOptionLabel}.`;
-  return resultMessage;
+  const resultMessageText = `Різниця між ${startDate} та ${endDate} становить ${timeDifference}, якщо враховувати ${daysOptionLabel}.`;  
+  resultMessage.textContent = resultMessageText;
+  resultMessage.style.backgroundColor = "#DADDF7";
+  resultMessage.style.borderRadius = "24px";
+  resultMessage.style.padding = "20px";
+  resultMessage.style.marginBottom = "10px";
 };
 
 // "last results table" function
@@ -192,14 +195,35 @@ const getResultsFromLocalStorage = function (lastResultsTable) {
     for (let step = lastResultArray.length - 1; step >= 0; step--) {
       const lastResultRow = document.createElement('tr');
       lastResultRow.innerHTML = lastResultArray[step];
+      lastResultRow.classList.add('lastresults__row');
+
+      if (step === 0) {
+        lastResultRow.classList.add('lastresults__row_first');
+      }
       lastResultsTable.insertBefore(lastResultRow, lastResultsTable.firstChild);
     }
   }
 };
 
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
   getResultsFromLocalStorage(lastResultsTable);
 });
+
+
+// clear storage function
+const clearResultsFromLocalStorage = () => {  
+  lastResultArray = localStorage.getItem(STORAGE_KEY);
+  if (lastResultArray) {
+    const isApproved = confirm("Ви впевнені, що хочете видалити всі результати?");
+    if (isApproved) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
+  location.reload();  
+};
+
+clearResultsButton.addEventListener("click", clearResultsFromLocalStorage);
+
 
 
 // "submit" event listener for timeForm
@@ -223,22 +247,18 @@ timeForm.addEventListener("submit", (event) => {
       break;
     }
   }
-
-  resultMessage.textContent = createResultMessage(startDate, endDate, daysOptionLabel);
-  timeForm.appendChild(resultMessage); 
-  
+  createResultMessage(startDateInput.value, endDateInput.value, daysOptionLabel);   
   storeResultsInLocalStorage();
   getResultsFromLocalStorage(lastResultsTable);
 });
 
 // "clear form" event listener 
-clearFormButton.addEventListener("click", function(event) {
-  event.preventDefault();
+clearFormButton.addEventListener("click", function() {
   startDateInput.value = '';
   endDateInput.value = '';
   timeUnitRadioButtons.forEach(radio => radio.checked = false);
   daysOptionRadioButtons.forEach(radio => radio.checked = false);
   resultMessage.textContent = '';
+  resultMessage.style.backgroundColor = '';
+  resultMessage.style.padding = '0';
 });
-
-    
