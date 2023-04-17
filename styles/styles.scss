@@ -10,7 +10,8 @@ body {
 }
 
 *,
-fieldset {
+fieldset,
+h1 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -33,7 +34,7 @@ table {
 .title-wrapper {
     background: #EEF0FF;
     border-bottom: 1px solid rgba(68, 76, 155, 0.2);
-    padding: 70px 100px;
+    padding: 20px 100px;
 
     .title {
         @extend %nunito-regular;
@@ -58,7 +59,7 @@ table {
 
 .calculator-block {
     width: 50%;
-    padding: 50px;
+    padding: 20px 50px;
 }
 
 .dates-wrapper,
@@ -66,7 +67,7 @@ table {
     background: #FFFFFF;
     box-shadow: 0px 20px 32px rgba(139, 146, 204, 0.15);
     border-radius: 24px;
-    padding: 40px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
@@ -84,14 +85,14 @@ table {
     &__days {
         display: flex;
         flex-direction: row;
-        margin-bottom: 48px;
+        margin-bottom: 30px;
     }
 
     &__units {
         display: flex;
         flex-direction: row;
-        padding-bottom: 48px;
-        margin-bottom: 48px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
         border-bottom: 1px solid rgba(68, 76, 155, 0.2);
     }
 
