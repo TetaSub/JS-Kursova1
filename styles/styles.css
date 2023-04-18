@@ -296,6 +296,10 @@ table th {
   .form-item input[type=radio] + label {
     padding: 10px 15px;
   }
+  .form-item input[type=date] {
+    width: 100%;
+    box-sizing: border-box;
+  }
   .btn__preset:first-child {
     margin-left: 0;
   }

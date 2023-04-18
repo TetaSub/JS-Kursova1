@@ -329,6 +329,11 @@ table {
             padding: 10px 15px;
         }
 
+        input[type="date"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
     }
 
     .btn__preset:first-child {
